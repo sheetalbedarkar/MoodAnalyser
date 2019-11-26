@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelabz.MoodAnalyserTest.MoodAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-26T05:05:54" hostname="sheetal-lenovo-v130-15ikb" time="0.002">
+<testsuite name="com.bridgelabz.MoodAnalyserTest.MoodAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-26T05:15:15" hostname="sheetal-lenovo-v130-15ikb" time="0.002">
   <properties/>
-  <testcase name="givenMessage_whenSad_ShowReturnSad" classname="com.bridgelabz.MoodAnalyserTest.MoodAnalyserTest" time="0.002"/>
+  <testcase name="givenMessage_whenHappy_ShowReturnHappy" classname="com.bridgelabz.MoodAnalyserTest.MoodAnalyserTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
