@@ -18,15 +18,22 @@ public class MoodAnalyserMain {
     public String analyseMood() throws MoodAnalysisException {
         try {
             if(message.length() == 0)
-                throw new  MoodAnalysisException(MoodAnalysisException.ExceptionType.ENTERED_EMPTY,"Please Enter proper Mood");
+                throw new  MoodAnalysisException(MoodAnalysisException.ExceptionType.ENTERED_NULL,"Please Enter Proper Mood");
             if(message.contains("SAD")) {
                 return "SAD";
             }
             else {
                 return "HAPPY";
             }
-        } catch (NullPointerException e) {
-            throw new  MoodAnalysisException(MoodAnalysisException.ExceptionType.ENTERED_NULL,"Please Enter proper Mood");
+        } catch (MoodAnalysisException e) {
+            throw new  MoodAnalysisException(MoodAnalysisException.ExceptionType.ENTERED_EMPTY,"Please Enter Proper Mood");
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof MoodAnalyserMain)
+            return true;
+        return false;
     }
 }

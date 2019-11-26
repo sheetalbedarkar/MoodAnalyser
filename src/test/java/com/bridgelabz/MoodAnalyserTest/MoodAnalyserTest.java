@@ -1,5 +1,6 @@
 package com.bridgelabz.MoodAnalyserTest;
 
+import com.bridgelabz.MoodAnalyser.MoodAnalyserFactory;
 import com.bridgelabz.MoodAnalyser.MoodAnalyserMain;
 import com.bridgelabz.MoodAnalyser.MoodAnalysisException;
 import org.junit.Assert;
@@ -37,9 +38,24 @@ public class MoodAnalyserTest {
             exceptionRule.expect(MoodAnalysisException.class);
             moodAnalyser.analyseMood();
         }catch (MoodAnalysisException e){
-            Assert.assertEquals("Please Enter proper Mood",e.getMessage());
+            Assert.assertEquals("Please Enter Proper Mood",e.getMessage());
         }
     }
 
+    @Test
+    public void givenMessage_WhenEmptyMood_ShouldReturnMoodAnalyserException() {
+        MoodAnalyserMain moodAnalyser = new MoodAnalyserMain("");
+        try {
+            moodAnalyser.analyseMood();
+        }catch (MoodAnalysisException e){
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTERED_EMPTY,e.type);
+        }
+    }
+
+    @Test
+    public void givenMoodAnalyseClass_WhenProper_ReturnObject() throws MoodAnalysisException {
+        MoodAnalyserMain MoodAnalyserMain = MoodAnalyserFactory.createMoodAnalyser();
+        Assert.assertEquals(new MoodAnalyserMain("I am in happy mood"), MoodAnalyserMain);
+    }
 
 }
