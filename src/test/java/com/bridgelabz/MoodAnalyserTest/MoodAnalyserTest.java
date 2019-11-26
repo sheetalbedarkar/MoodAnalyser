@@ -68,4 +68,13 @@ public class MoodAnalyserTest {
         }
     }
 
+    @Test
+    public void givenMethod_whenNotProper_ReturnMoodAnalyserException() {
+        MoodAnalyserMain moodAnalyser = null;
+        try {
+            moodAnalyser = MoodAnalyserFactory.createMoodAnalyser();
+        }catch (MoodAnalysisException e){
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.NO_SUCH_METHOD,e.type);
+        }
+    }
 }
