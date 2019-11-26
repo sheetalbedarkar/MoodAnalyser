@@ -72,7 +72,27 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.MoodAnalyserTest.givenMessage_WhenNull_ShouldReturnHappy">
+  <component name="RunManager" selected="Gradle.MoodAnalyserTest.givenMessage_WhenNullWithCustomException_ShouldReturnMoodAnalyserException">
+    <configuration name="MoodAnalyserTest.givenMessage_WhenNullWithCustomException_ShouldReturnMoodAnalyserException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.bridgelabz.MoodAnalyserTest.MoodAnalyserTest.givenMessage_WhenNullWithCustomException_ShouldReturnMoodAnalyserException&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="MoodAnalyserTest.givenMessage_WhenNull_ShouldReturnHappy" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -155,6 +175,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.MoodAnalyserTest.givenMessage_WhenNullWithCustomException_ShouldReturnMoodAnalyserException" />
         <item itemvalue="Gradle.MoodAnalyserTest.givenMessage_WhenNull_ShouldReturnHappy" />
         <item itemvalue="Gradle.MoodAnalyserTest.givenNullMoodShouldThrowException" />
         <item itemvalue="Gradle.MoodAnalyserTest.givenMessage_whenHappy_ShowReturnHappy" />
