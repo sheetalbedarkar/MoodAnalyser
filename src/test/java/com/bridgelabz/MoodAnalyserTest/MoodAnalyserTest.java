@@ -54,7 +54,7 @@ public class MoodAnalyserTest {
 
     @Test
     public void givenMoodAnalyseClass_WhenProper_ReturnObject() throws MoodAnalysisException {
-        MoodAnalyserMain MoodAnalyserMain = MoodAnalyserFactory.createMoodAnalyser();
+        MoodAnalyserMain MoodAnalyserMain = MoodAnalyserFactory.createMoodAnalyser("I am in HAPPY mood");
         Assert.assertEquals(new MoodAnalyserMain("I am in happy mood"), MoodAnalyserMain);
     }
 
@@ -62,7 +62,7 @@ public class MoodAnalyserTest {
     public void givenClassName_whenNoSuchClass_ReturnMoodAnalyserException() {
         MoodAnalyserMain moodAnalyser = null;
         try {
-            MoodAnalyserMain MoodAnalyser = MoodAnalyserFactory.createMoodAnalyser();
+            MoodAnalyserMain MoodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am in HAPPY mood");
         }catch (MoodAnalysisException e){
             Assert.assertEquals(MoodAnalysisException.ExceptionType.NO_SUCH_CLASS,e.type);
         }
@@ -72,9 +72,36 @@ public class MoodAnalyserTest {
     public void givenMethod_whenNotProper_ReturnMoodAnalyserException() {
         MoodAnalyserMain moodAnalyser = null;
         try {
-            moodAnalyser = MoodAnalyserFactory.createMoodAnalyser();
+            moodAnalyser = MoodAnalyserFactory.createMoodAnalyser("I am in HAPPY mood");
         }catch (MoodAnalysisException e){
             Assert.assertEquals(MoodAnalysisException.ExceptionType.NO_SUCH_METHOD,e.type);
         }
     }
+
+    @Test
+    public void giveHAppyMessage_withReflection_shouldReturnHappy()
+    {
+        try {
+            Object myObj = MoodAnalyserFactory.createMoodAnalyser("I am in HAPPY mood");
+            Object moodChange = MoodAnalyserFactory.invokeMethod(myObj, "analyseMood");
+            Assert.assertEquals("HAPPY", moodChange);
+        } catch (MoodAnalysisException e) {
+            e.getCause().getCause().printStackTrace();
+        }
+
+    }
+
+    @Test
+    public void givenMoodAnalyyser_OnChangeMood_ShouldReturnHappy()
+    {
+        try {
+            Object myObj = MoodAnalyserFactory.createMoodAnalyser("I am in HAPPY mood");
+            MoodAnalyserFactory.setFieldValue(myObj, "message", "I am in HAPPY mood");
+            Object moodChange = MoodAnalyserFactory.invokeMethod(myObj, "analyseMood");
+            Assert.assertEquals("HAPPY", moodChange);
+        } catch (MoodAnalysisException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
